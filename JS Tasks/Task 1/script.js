@@ -10,8 +10,18 @@ Pastaba: rezultatas turi būti matomas pateikus formą ir atvaizduojamas
 ------------------------------------------------------------------- */
 
 const resultDiv = document.querySelector("#output");
-const input = document.querySelector("#search");
+const numberInput = document.querySelector("#search");
 
 document.querySelector("form").addEventListener("submit", convertWeight);
 
-function convertWeight() {}
+function convertWeight(e) {
+  e.preventDefault();
+  const kgNumber = +numberInput.value;
+  const lbNumber = kgNumber * 2.2046;
+  const gNumber = kgNumber / 0.001;
+  const ozNumber = kgNumber * 35.274;
+
+  const resultText = `${lbNumber} lb ; ${gNumber} g ; ${ozNumber} oz ;`;
+
+  resultDiv.append(resultText);
+}
