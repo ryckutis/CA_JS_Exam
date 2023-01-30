@@ -16,6 +16,7 @@ document.querySelector("form").addEventListener("submit", convertWeight);
 
 function convertWeight(e) {
   e.preventDefault();
+  resultDiv.innerHTML = "";
   const kgNumber = +numberInput.value;
   const lbNumber = kgNumber * 2.2046;
   const gNumber = kgNumber / 0.001;
@@ -24,4 +25,5 @@ function convertWeight(e) {
   const resultText = `${lbNumber} lb ; ${gNumber} g ; ${ozNumber} oz ;`;
 
   resultDiv.append(resultText);
+  numberInput.value = "";
 }
